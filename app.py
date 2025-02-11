@@ -5,7 +5,7 @@ from together import Together
 from dotenv import load_dotenv  # Load environment variables
 
 # Load API Key from Streamlit Secrets or .env
-load_dotenv(dotenv_path=".env")  # Load from .env (for local testing)
+load_dotenv()  # Load from .env (for local testing)
 API_KEY = os.getenv("TOGETHER_API_KEY") 
 
 if not API_KEY:
