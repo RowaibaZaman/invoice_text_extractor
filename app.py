@@ -6,8 +6,9 @@ from dotenv import load_dotenv  # Load environment variables
 
 # Load API Key from Streamlit Secrets or .env
 load_dotenv()  # Load from .env (for local testing)
-API_KEY = os.getenv("TOGETHER_API_KEY") 
-API_KEY = st.secrets["TOGETHER_API_KEY"]
+# API_KEY = os.getenv("TOGETHER_API_KEY") 
+# API_KEY = st.secrets["TOGETHER_API_KEY"]
+API_KEY = st.secrets.get("TOGETHER_API_KEY", os.getenv("TOGETHER_API_KEY"))
 if not API_KEY:
     st.error("⚠️ API Key is missing! Set TOGETHER_API_KEY in .env or secrets.toml")
     st.stop()
